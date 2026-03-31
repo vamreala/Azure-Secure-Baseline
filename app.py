@@ -13,12 +13,12 @@ def index():
         
         # 2. THE IDENTITY MAGIC: 
         # DefaultAzureCredential will automatically detect the 
-        # Tell the app exactly which ID to use
-        credential = DefaultAzureCredential(managed_identity_client_id="385449eb-1d00-49ed-bd1a-2e8d4b0b9164")
+        # Tell the app exactly which ID to use, add your identity id. 
+        credential = DefaultAzureCredential ()
         client = SecretClient(vault_url=vault_url, credential=credential)
         
         # 3. Request the secret from the vault
-        secret_name = "MyFirstSecret"
+        secret_name = "secretname"
         retrieved_secret = client.get_secret(secret_name)
         
         # 4. Return a clean, dark-themed UI (AMBV Style)
